@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Language Translator</string>
+    <string-array name="Language">
+        <item>ARABIC</item>
+        <item>BULGARIAN</item>
+        <item>CATALAN</item>
+        <item>DANISH</item>
+    </string-array>
+    
 </resources>
