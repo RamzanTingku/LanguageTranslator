@@ -1,10 +1,36 @@
 <resources>
     <string name="app_name">Language Translator</string>
     <string-array name="Language">
+        <item>Select Language</item>
         <item>ARABIC</item>
         <item>BULGARIAN</item>
         <item>CATALAN</item>
+        <item>CHINESE_SIMPLIFIED</item>
         <item>DANISH</item>
-    </string-array>
+        <item>DUTCH</item>
+        <item>ENGLISH</item>
+        <item>FRENCH</item>
+        <item>GERMAN</item>
+        <item>GREEK</item>
+        <item>HEBREW</item>
+        <item>HINDI</item>
+        <item>INDONESIAN</item>
+        <item>ITALIAN</item>
+        <item>JAPANESE</item>
+        <item>KOREAN</item>
+        <item>LATVIAN</item>
+        <item>MALAY</item>
+        <item>NORWEGIAN</item>
+        <item>PERSIAN</item>
+        <item>PORTUGUESE</item>
+        <item>RUSSIAN</item>
+        <item>SPANISH</item>
+        <item>SLOVENIAN</item>
+        <item>THAI</item>
+        <item>TURKISH</item>
+        <item>URDU</item>
+        <item>UKRAINIAN</item>
+        <item>VIETNAMESE</item>
+ </string-array>
     
 </resources>
