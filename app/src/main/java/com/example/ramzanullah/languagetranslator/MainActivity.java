@@ -1,5 +1,6 @@
 package com.example.ramzanullah.languagetranslator;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -32,17 +33,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button btnTranslateSpeech = (Button) findViewById(R.id.bTranslateSpeech);
+        Button btnTranslateText = (Button) findViewById(R.id.bTranslateText);
 
         // final SwipeRefreshLayout swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
-
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final EditText metUserText = (EditText) findViewById(R.id.etUserText);
+        final TextView mtvTranslatedText = (TextView) findViewById(R.id.tvTranslatedText);
+
+        tts = new TextToSpeech(this, this);
+
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.Language, R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        tts = new TextToSpeech(this, this);
-        ((Button) findViewById(R.id.bTranslateSpeech)).setOnClickListener(new View.OnClickListener() {
-
+        btnTranslateSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
 
-        ((Button) findViewById(R.id.bTranslateText)).setOnClickListener(new View.OnClickListener() {
+        btnTranslateText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                         try {
 
-                            String text = ((EditText) findViewById(R.id.etUserText)).getText().toString();
+                            String text = metUserText.getText().toString();
                             translatedText = translate(text);
                         } catch (Exception e) {
 
@@ -77,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     @Override
                     protected void onPostExecute(Void result) {
-                        ((TextView) findViewById(R.id.tvTranslatedText)).setText(translatedText);
+                        mtvTranslatedText.setText(translatedText);
                         super.onPostExecute(result);
                     }
 
@@ -87,9 +92,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-
-
-      /* swipeView.setColorScheme(android.R.color.holo_blue_dark, android.R.color.holo_blue_light, android.R.color.holo_green_light, android.R.color.holo_green_dark);
+        /* swipeView.setColorScheme(android.R.color.holo_blue_dark, android.R.color.holo_blue_light, android.R.color.holo_green_light, android.R.color.holo_green_dark);
         swipeView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
             @Override
@@ -116,9 +119,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //text = (String) Text.getText();
 
         switch (position) {
+            case 0:
+                myText = Language.ENGLISH;
+                myVoice = Locale.ENGLISH;
 
             case 1:
                 myText = Language.ARABIC;
+                myVoice = Locale.ENGLISH;
 
                 break;
             case 2:
@@ -262,7 +269,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     public void onInit(int status) {
-        // TODO Auto-generated method stub
         if (status == TextToSpeech.SUCCESS) {
 
             int result = tts.setLanguage(myVoice);
@@ -276,22 +282,42 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+
     private void speakOut(String text) {
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
 
+    public void toAny1(View v1) {
+        Intent i1 = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(i1);
+    }
+
+    public void toEnglish1(View v2) {
+        Intent i2 = new Intent(MainActivity.this, AnytoEnglish.class);
+        startActivity(i2);
+    }
+
+
+    public void toGoogle1(View v3) {
+        Intent i3 = new Intent(MainActivity.this, Google.class);
+        startActivity(i3);
+    }
+
+
     public void quiteActivity(View view) {
-        App.quiteApp(this);
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 }
 
 
-class App {
+/*class FinishMain {
 
     public static void quiteApp(AppCompatActivity appCompatActivity) {
 
         appCompatActivity.finish();
     }
 
-}
+} */

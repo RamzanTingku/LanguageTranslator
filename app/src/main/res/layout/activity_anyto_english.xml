@@ -6,7 +6,7 @@
     android:layout_marginLeft="2dp"
     android:layout_marginRight="2dp"
     android:orientation="vertical"
-    tools:context="com.example.ramzanullah.languagetranslator.MainActivity">
+    tools:context="com.example.ramzanullah.languagetranslator.AnytoEnglish">
 
 
     <LinearLayout
@@ -14,32 +14,29 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/btoAny1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="toAny1"
+            android:onClick="toAny2"
             android:text="Eng-Any" />
 
         <Button
-            android:id="@+id/btoEnglish1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="toEnglish1"
+            android:onClick="toEnglish2"
             android:text="Any-Eng" />
 
         <Button
-            android:id="@+id/btoGoogle1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="toGoogle1"
+            android:onClick="toGoogle2"
             android:text="Google " />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/etUserText"
+        android:id="@+id/etUserText2"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
@@ -50,6 +47,8 @@
         android:textAlignment="viewStart">
 
         <requestFocus />
+
+
     </EditText>
 
 
@@ -59,7 +58,7 @@
 
 
         <Button
-            android:id="@+id/bTranslateSpeech"
+            android:id="@+id/bTranslateSpeech2"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
@@ -70,19 +69,12 @@
 
 
         <Button
-            android:id="@+id/bTranslateText"
+            android:id="@+id/bTranslateText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@+id/spinner"
-            android:text="Translate" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"></Spinner>
+            android:layout_centerHorizontal="true"
+            android:text="Translate to English" />
 
 
     </RelativeLayout>
@@ -94,7 +86,6 @@
         android:layout_margin="2dp">
 
 
-
     </RelativeLayout>
 
 
@@ -103,7 +94,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvTranslatedText"
+            android:id="@+id/tvTranslatedText2"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:background="@color/colorBackgroundText"
@@ -114,7 +105,7 @@
 
 
         <Button
-            android:id="@+id/btnQuite"
+            android:id="@+id/btnQuite2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -124,4 +115,3 @@
     </RelativeLayout>
 
 </LinearLayout>
-
